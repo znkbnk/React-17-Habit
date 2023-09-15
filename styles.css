@@ -1,17 +1,22 @@
 /* Global styles */
 body {
-  font-family: "Euclid Circular A", "Poppins";
-  background: #45494e;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
 }
 
-/* Add margin-top to create a gap */
 .app-container {
   text-align: center;
-  max-width: 400px;
-  margin: 5rem auto 0; /* Added margin-top to create a gap */
+  max-width: 600px;
+  margin: 5rem auto 0;
   padding: 2rem;
-  background-color: #f5f5f5;
-  border-radius: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
@@ -23,22 +28,30 @@ select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
-.edit-button,
-.delete-button,
 button {
   width: 100%;
-  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   margin-bottom: 0.5rem;
-  background-color: #45494e;
+  text-align: center;
+  padding: 10px;
+}
+
+button.full-width {
+  padding: 0.5rem 1rem;
+  background-color: #333;
   color: #fff;
   transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #777;
 }
 
 ul {
@@ -60,59 +73,68 @@ li:last-child {
   border-bottom: none;
 }
 
-/* Nav menu styles */
 .nav-menu {
-
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  background-color: #f5f5f5;
-  padding: 0.5rem;
+  background-color: #333;
+  padding: 1rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between; /* Adjust this line */
   align-items: center;
   z-index: 100;
+  border-radius: 15px;
 }
 
 .nav-menu button {
-  
-  background-color: #45494e;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-right: 1rem;
-  padding: 0.5rem 1rem;
   font-size: 16px;
   width: auto;
   transition: background-color 0.2s ease-in-out;
+  text-align: center;
 }
 
 .nav-menu button:hover {
-  background-color: #7d8da0;
+  background-color: #777;
 }
 
-/* Dropdown menu styles */
+.nav-menu .categories-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: auto;
+  transition: background-color 0.2s ease-in-out;
+  text-align: center;
+}
+
+.nav-menu .categories-button:hover {
+  background-color: #555;
+}
+
+/* Dropdown styles */
 .dropdown {
   position: relative;
   cursor: pointer;
 }
 
 .dropdown .dropbtn {
-  background-color: #007bff;
+  background-color: #555;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin-right: 1rem;
-  padding: 0.5rem 1rem;
   font-size: 16px;
   transition: background-color 0.2s ease-in-out;
 }
 
 .dropdown .dropbtn:hover {
-  background-color: #afb6bd;
+  background-color: #555;
 }
 
 .dropdown .content {
@@ -125,13 +147,7 @@ li:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #f7f7f7;
-}
-
-.dropdown .content::after {
-  content: "";
-  position: absolute;
-  transition: 0.3s;
+  color: #fff;
 }
 
 .dropdown:hover .content::after {
@@ -161,7 +177,7 @@ li:last-child {
   transform: translateX(-50%);
   visibility: hidden;
   opacity: 0;
-  background: linear-gradient(#ea8d8d, #a890fe);
+  background: linear-gradient(#555, #555);
   transition: 0.3s;
 }
 
@@ -174,20 +190,15 @@ li:last-child {
 .dropdown .menu a {
   display: flex;
   align-items: center;
-  color: #f7f7f7;
+  color: #fff;
   font-size: 14px;
   padding: 0 24px;
 }
 
 .dropdown .menu a:hover {
-  background: rgb(0 0 0 / 10%);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.dropdown .menu a > span {
-  font-size: 20px;
-}
-
-/* Unique styles for dropdown content */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -203,7 +214,6 @@ li:last-child {
 
 .dropdown-content button {
   width: 100%;
-  
   text-align: left;
   background-color: transparent;
   border: none;
@@ -214,4 +224,31 @@ li:last-child {
 
 .dropdown-content button:hover {
   background-color: #f0f0f0;
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 1rem;
+  }
+
+  input,
+  select,
+  button {
+    width: 90%;
+  }
+
+  .nav-menu {
+    flex-direction: row; /* Change to column layout for smaller screens */
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  .nav-menu button,
+  .nav-menu .categories-button {
+    margin: 0 5px;
+  }
 }
